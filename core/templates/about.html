@@ -1,0 +1,429 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Bende Local Government Area</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-info">
+          <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+          <span><i class="fas fa-envelope"></i> info@bendelga.gov.ng</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo"><i class="fas fa-landmark"></i> Bende LGA</div>
+          <ul class="nav-links">
+            <li><a href="{% url "base" %}">Home</a></li>
+            <li>
+              <a href="#" style="color: var(--green); font-weight: 700"
+                >About</a
+              >
+            </li>
+            <li><a href="{% url "base" %}#services">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>About Bende LGA</h1>
+        <div class="breadcrumb">
+          <a href="{% url "base" %}">Home</a> &nbsp;/&nbsp; About Us
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-content">
+            <span
+              style="
+                color: var(--gold);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+              "
+              >Our Heritage</span
+            >
+            <h2>The Pride of Abia State</h2>
+            <p>
+              Bende Local Government Area is one of the oldest and most
+              historically significant LGAs in Abia State. Known for its rich
+              agricultural soil, vibrant cultural festivals, and peaceful
+              disposition, Bende stands as a pillar of economic and social
+              development in the region.
+            </p>
+            <p>
+              Our mission is to foster a united community through transparent
+              governance, infrastructural development, and the empowerment of
+              our people. From the rice fields of Ozuitem to the bustling
+              markets of Uzuakoli, Bende is a land of opportunity.
+            </p>
+            <div style="margin-top: 30px">
+              <div style="display: flex; gap: 30px">
+                <div>
+                  <h3
+                    style="
+                      color: var(--green);
+                      font-size: 2rem;
+                      font-weight: 700;
+                    "
+                  >
+                    With 13+
+                  </h3>
+                  <p style="font-size: 0.9rem; font-weight: 500">
+                    Major Communities
+                  </p>
+                </div>
+                <div>
+                  <h3
+                    style="
+                      color: var(--green);
+                      font-size: 2rem;
+                      font-weight: 700;
+                    "
+                  >
+                    Over 650k+
+                  </h3>
+                  <p style="font-size: 0.9rem; font-weight: 500">
+                    Population Estimate
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="intro-image">
+            <!-- Placeholder Image for Bende Map or Council Hall -->
+            <img
+              src="{% static "img/igbere.jpg" %}"
+              alt="Bende Landscape"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Communities Cards Section -->
+    <section class="communities-section">
+      <div class="container">
+        <h2 class="section-title">Our Communities</h2>
+        <p class="section-subtitle">
+          Discover the towns and villages that make up the vibrant tapestry of
+          Bende Local Government Area.
+        </p>
+
+        <div class="communities-grid">
+          <!-- Card 1: Bende Town -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="{% static "img/bende_town.png" %}"
+                alt="Bende culture"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Bende Town</h3>
+              <p>
+                The administrative headquarters of the LGA. Bende Town is the
+                seat of local governance and home to the historic Council
+                Secretariat.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Uzuakoli -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1543615454-041846b00c96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Uzuakoli"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Uzuakoli</h3>
+              <p>
+                Famous for its historic slave trade route history, the Methodist
+                Institute, and one of the largest markets in the region.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Igbere -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1599831778939-50953a830b8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Igbere"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Igbere</h3>
+              <p>
+                A prominent community known for its entrepreneurial spirit,
+                scenic hills, and significant contributions to media and
+                business.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Ozuitem -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Ozuitem"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Ozuitem</h3>
+              <p>
+                Often referred to as the food basket of Bende, Ozuitem is
+                renowned for large-scale agriculture, particularly rice and
+                cassava.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Item -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1588613437149-c1274d715d2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Item"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Item</h3>
+              <p>
+                Rich in culture and war dance history. The Item community is a
+                cluster of villages with a strong communal bond.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Alayi -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="{% static "img/alayi_cul.png" %}"
+                alt="Alayi"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Alayi</h3>
+              <p>
+                Known for its breathtaking landscape and hills. Alayi is a
+                peaceful community with a growing educational sector.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Itumbauzo -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1597843666572-c5c2d3d9d375?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Itumbauzo"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Itumbauzo</h3>
+              <p>
+                Located near the border, Itumbauzo is key for cross-border trade
+                and possesses vast arable land for farming.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Ugwueke -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1542601906990-b4d3fb7d5b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Ugwueke"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Ugwueke</h3>
+              <p>
+                A serene community known for its hospitality and palm oil
+                production. It plays a vital role in the local economy.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Umuhu-Ezechi -->
+          <div class="community-card">
+            <div class="card-img-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1528696892704-5e1122852276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Umuhu-Ezechi"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Umuhu-Ezechi</h3>
+              <p>
+                A strategic community bordering the capital territory, known for
+                its rapid development and welcoming people.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-outline" style="width: 100%">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p style="opacity: 0.7">
+              Modernizing governance through technology. We are committed to
+              transparency and development.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Our History</a></li>
+              <li><a href="#">Leadership</a></li>
+              <li><a href="#">Departments</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Budget</a></li>
+              <li><a href="#">Downloads</a></li>
+              <li><a href="#">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Socials</h4>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Bende Local Government Area. All Rights Reserved.</p>
+          <p style="opacity: 0.6; margin-top: 5px">
+            Powered by <strong>XantSpace</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple Interaction for "Learn More" buttons
+      document.querySelectorAll(".btn-outline").forEach((button) => {
+        button.addEventListener("click", function () {
+          const townName =
+            this.parentElement.parentElement.querySelector("h3").innerText;
+          alert(
+            "Detailed history and information about " +
+              townName +
+              " will be loaded here."
+          );
+        });
+      });
+
+      // Mobile Menu
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links"); // Ensure you add CSS for .nav-links.active in a real scenario
+
+      mobileToggle.addEventListener("click", () => {
+        // Basic toggle logic (requires CSS class 'active' in stylesheet for mobile view)
+        alert("Mobile menu clicked (Add CSS for .nav-links display toggle)");
+      });
+    </script>
+  </body>
+</html>

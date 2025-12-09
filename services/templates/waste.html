@@ -1,0 +1,466 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waste Management | Bende Local Government Area</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static "css/waste.css" %}">
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-info">
+          <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+          <span
+            ><i class="fas fa-recycle"></i> environment@bendelga.gov.ng</span
+          >
+        </div>
+        <div class="top-socials">
+          <span
+            >Follow us: &nbsp; <i class="fab fa-facebook-f"></i> &nbsp;
+            <i class="fab fa-twitter"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <i class="fas fa-landmark"></i>
+            Bende LGA
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+              <a href="#" style="color: var(--green); font-weight: 700"
+                >Services</a
+              >
+            </li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><button class="btn btn-green">Pay Levy</button></li>
+          </ul>
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Waste Management System</h1>
+        <div class="breadcrumb">
+          <a href="{% url "base" %}">Home</a> &nbsp;/&nbsp; <a href="{% url "base" %}#services">Services</a> &nbsp;/&nbsp;
+          Environmental Sanitation
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container page-content">
+      <!-- Process Steps -->
+      <div class="steps-container">
+        <div class="step">
+          <span class="step-number">1</span>
+          <h4>Register</h4>
+          <p>Register your residential or commercial property.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">2</span>
+          <h4>Get Assessed</h4>
+          <p>System calculates levy based on building type.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <h4>Pay & Bag</h4>
+          <p>Pay online and bag your waste securely.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">4</span>
+          <h4>Collection</h4>
+          <p>Trucks pick up on designated zonal days.</p>
+        </div>
+      </div>
+
+      <div class="split-layout">
+        <!-- Sidebar Info -->
+        <aside>
+          <div class="info-box">
+            <h3><i class="fas fa-truck"></i> Collection Schedule</h3>
+            <div class="schedule-row">
+              <span>Bende Town (Zone A)</span>
+              <strong>Mon & Thu</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Uzuakoli (Zone B)</span>
+              <strong>Tue & Fri</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Ozuitem (Zone C)</span>
+              <strong>Wed & Sat</strong>
+            </div>
+            <div class="schedule-row">
+              <span>Market Areas</span>
+              <strong>Daily (6 PM)</strong>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3>Guidelines</h3>
+            <ul>
+              <li>
+                <i class="fas fa-check-circle"></i> Use government-approved
+                bags.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Separate glass and plastics.
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> Place bins out by 7:00 AM.
+              </li>
+              <li>
+                <i class="fas fa-ban" style="color: #d32f2f"></i> No burning of
+                refuse.
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="info-box"
+            style="
+              background-color: var(--white);
+              border: 1px solid #eee;
+              border-left: 4px solid var(--gold);
+            "
+          >
+            <h3>Sanitation Taskforce</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 10px">
+              For missed pickups or complaints:
+            </p>
+            <p>
+              <strong><i class="fas fa-phone"></i> 0800-CLEAN-BENDE</strong>
+            </p>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div style="margin-top: 30px">
+            <h3 style="margin-bottom: 15px; color: var(--dark-blue)">FAQs</h3>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                How do I get waste bags? <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                Bags are provided free of charge upon monthly levy payment
+                confirmation at ward centers.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Is recycling available? <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                Yes, plastic recycling drop-off points are available at the
+                Secretariat and Main Market.
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Application Form -->
+        <main>
+          <div class="app-form">
+            <div class="form-header">
+              <h2
+                class="section-title"
+                style="font-size: 1.5rem; text-align: left"
+              >
+                Waste Collection Registration
+              </h2>
+              <p style="color: #666">
+                Register your premises for the monthly collection service.
+              </p>
+            </div>
+
+            <form id="wasteForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Property Owner Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" class="form-control" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Property Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Street Name & Number"
+                  required
+                />
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Zone / Ward</label>
+                  <select class="form-control" required>
+                    <option value="">Select Zone...</option>
+                    <option>Zone A (Bende Town)</option>
+                    <option>Zone B (Uzuakoli)</option>
+                    <option>Zone C (Ozuitem)</option>
+                    <option>Zone D (Itumbauzo)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Building Type</label>
+                  <select
+                    class="form-control"
+                    id="buildingType"
+                    required
+                    onchange="calculateBill()"
+                  >
+                    <option value="">Select Type...</option>
+                    <option value="1000">Residential Bungalow</option>
+                    <option value="2000">Residential Duplex</option>
+                    <option value="500">Shop / Kiosk</option>
+                    <option value="5000">Factory / Warehouse</option>
+                    <option value="3000">Restaurant / Hotel</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Payment Frequency</label>
+                <select
+                  class="form-control"
+                  id="frequency"
+                  onchange="calculateBill()"
+                >
+                  <option value="1">Monthly</option>
+                  <option value="6">6 Months (5% Discount)</option>
+                  <option value="12">Yearly (10% Discount)</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Bill Summary -->
+              <div class="bill-summary" id="billSummary">
+                <h4>Estimated Levy</h4>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                >
+                  <span>Total to pay:</span>
+                  <span class="total-amount" id="totalAmount">₦0.00</span>
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 5px; color: #666">
+                  *Excludes transaction fees
+                </p>
+              </div>
+
+              <div style="margin-top: 30px">
+                <button type="submit" class="btn btn-green" style="width: 100%">
+                  Proceed to Payment
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Report Hazard Section -->
+          <div class="report-box">
+            <h3 style="color: #d32f2f; margin-bottom: 10px">
+              <i class="fas fa-exclamation-triangle"></i> Report Illegal Dumping
+            </h3>
+            <p style="margin-bottom: 20px">
+              Spot a heap of refuse in an unauthorized location? Help us keep
+              Bende clean by reporting it anonymously.
+            </p>
+            <button class="btn btn-red">Report Incident Now</button>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p style="line-height: 1.8">
+              The official website of Bende Local Government Area. Serving the
+              people with integrity, accountability, and excellence.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Pay Taxes</a></li>
+              <li><a href="#">Tenders</a></li>
+              <li><a href="#">Staff Login</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Departments</h4>
+            <ul>
+              <li><a href="#">Works</a></li>
+              <li><a href="#">Health</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Agriculture</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 Bende Local Government Area. All Rights Reserved.</p>
+          <p style="opacity: 0.6; margin-top: 5px">
+            Powered by <strong>XantSpace</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS for Interactivity -->
+    <script>
+      // Mobile Menu
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = mobileToggle.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Sticky Header
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        } else {
+          header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.05)";
+        }
+      });
+
+      // Accordion
+      const accordions = document.querySelectorAll(".accordion-header");
+      accordions.forEach((acc) => {
+        acc.addEventListener("click", function () {
+          const panel = this.nextElementSibling;
+          panel.classList.toggle("active");
+          const icon = this.querySelector("i");
+          if (panel.classList.contains("active")) {
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+        });
+      });
+
+      // --- Bill Calculator Logic ---
+      function calculateBill() {
+        const typeSelect = document.getElementById("buildingType");
+        const freqSelect = document.getElementById("frequency");
+        const summaryBox = document.getElementById("billSummary");
+        const totalDisplay = document.getElementById("totalAmount");
+
+        const baseRate = parseFloat(typeSelect.value);
+        const months = parseFloat(freqSelect.value);
+
+        if (typeSelect.value !== "") {
+          let total = baseRate * months;
+
+          // Apply Discounts
+          if (months === 6) {
+            total = total * 0.95; // 5% off
+          } else if (months === 12) {
+            total = total * 0.9; // 10% off
+          }
+
+          // Format Currency
+          totalDisplay.innerText =
+            "₦" + total.toLocaleString("en-NG", { minimumFractionDigits: 2 });
+          summaryBox.style.display = "block";
+        } else {
+          summaryBox.style.display = "none";
+        }
+      }
+
+      // Form Submission
+      document
+        .getElementById("wasteForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = this.querySelector('button[type="submit"]');
+
+          btn.innerText = "Processing...";
+          btn.style.backgroundColor = "#0A1A2F";
+
+          setTimeout(() => {
+            alert("Registration Successful! Redirecting to Payment Gateway...");
+            btn.innerText = "Redirecting...";
+            // In a real app, window.location.href = 'payment_url';
+          }, 2000);
+        });
+    </script>
+  </body>
+</html>

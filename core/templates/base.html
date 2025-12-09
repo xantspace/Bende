@@ -1,0 +1,556 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bende Local Government Area | Official Portal</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  
+  </head>
+  
+  <body>
+    <!-- 1. Header -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-info">
+          <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+          <span><i class="fas fa-envelope"></i> info@bendelga.gov.ng</span>
+        </div>
+        <div class="top-socials">
+          <span
+            >Follow us: &nbsp; <i class="fab fa-facebook-f"></i> &nbsp;
+            <i class="fab fa-twitter"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <i class="fas fa-landmark"></i>
+            Bende LGA
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="btn btn-green">Login / Signup</button></li>
+          </ul>
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="home" class="hero" style="background-color: rgba(9, 11, 95, 0.7);">
+      <div style="padding: 70px 0 height: 100vh;">
+        <div class="container hero-content fade-in">
+        <h1 style=" text-shadow: 0px 5px 10px black">
+          Welcome to <span style="color: var(--gold)">Bende</span> Local
+          Government Area
+        </h1>
+        <p>
+          Building a stronger, cleaner, and united community for sustainable
+          development in Abia State.
+        </p>
+        <div style="display: flex; gap: 30px; justify-content: center;">
+          <img style="width:150px;" src="./static/img/ABIA.png" alt="Abia state logo">
+        <img style="width:150px;" src="./static/img/TRC.png" alt="Techrise logo">
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Floating Action Bar -->
+    <div class="container action-bar-container fade-in">
+      <div class="action-bar">
+        <div class="action-item">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <h4>Pay Taxes</h4>
+          <p style="font-size: 0.9rem; color: #666">Secure e-payments</p>
+        </div>
+        <div class="action-item">
+          <i class="fas fa-file-signature"></i>
+          <h4><a href="{% url 'permit' %}">Apply for Permit</a></h4>
+          <p style="font-size: 0.9rem; color: #666">Business & Building</p>
+        </div>
+        <div class="action-item">
+          <i class="fas fa-bullhorn"></i>
+          <h4>Make a Complaint</h4>
+          <p style="font-size: 0.9rem; color: #666">Report Issues</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 6. About -->
+    <section id="about" class="about">
+      <div class="about-layout" style="width: 100%">
+        <div class="container fade-in">
+        <h2 style="color: white; margin-bottom: 20px">About Bende LGA</h2>
+        <p>
+          Bende LGA is the heartbeat of Abia’s heritage—rich in culture, strong in agriculture, and rising as a hub of innovation and community growth. Rooted in tradition yet driven by progress, Bende stands as a proud symbol of unity, resilience, and opportunity in Abia State.
+        </p>
+        <button class="btn btn-gold"><a href="{% url 'about' %}">Learn More About Us</a></button>
+      </div>
+      <div style="display:flex; gap:20px; align-items: center; justify-content: center;" class="container fade-in">
+        <img style="width: 40%;"src="{% static "/img/mayor.jpg" %}" alt="LGA Mayor Image" />
+        <img style="width: 40%;"src="{% static "/img/deputy_mayor.png" %}" alt="LGA Mayor Image" />
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 3. Quick Links Section -->
+    <section id="services" class="quick-links">
+      <div class="container">
+        <h2 class="section-title fade-in">Public Services</h2>
+        <p class="section-subtitle fade-in">
+          Access essential government services efficiently.
+        </p>
+
+        <div class="links-grid">
+          <div class="link-card fade-in">
+            <i class="fas fa-baby"></i>
+            <h3>Birth Certificate</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              Registration & Issuance
+            </p>
+            <a
+              href="{% url "birth_cert" %}"
+              style="
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                text-decoration: none;
+              "
+              >visit</a
+            >
+          </div>
+
+
+          <div class="link-card fade-in">
+            <i class="fa-solid fa-heart"></i>
+            <h3>Marriage Registry</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              Bookings & Certificates
+            </p>
+            <a
+              href="{% url "marriage_reg" %}"
+              style="
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                text-decoration: none;
+              "
+              >visit</a
+            >
+          </div>
+
+
+
+          <div class="link-card fade-in">
+            <i class="fas fa-recycle"></i>
+            <h3>Waste Management</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              Schedules & Payment
+            </p>
+            <a
+              href="{% url 'waste_mgt' %}"
+              style="
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                text-decoration: none;
+              "
+              >visit</a
+            >
+          </div>
+
+
+          <div class="link-card fade-in">
+            <i class="fas fa-store"></i>
+            <h3>Business Permits</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              New & Renewal
+            </p>
+            <a
+              href="{% url "permit" %}"
+              style="
+                background: green;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                text-decoration: none;
+              "
+              >visit</a
+            >
+          </div>
+
+
+          <div class="link-card fade-in">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Health Centers</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              Locations & Services
+            </p>
+          </div>
+
+
+          <div class="link-card fade-in">
+            <i class="fas fa-briefcase"></i>
+            <h3>Job Opportunities</h3>
+            <p
+              style="
+                font-size: 0.9rem;
+                margin-top: 5px;
+                color: #777;
+                margin-bottom: 10px;
+              "
+            >
+              Recruitment Portal
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Latest Announcements -->
+    <section id="news" class="announcements">
+      <div class="container">
+        <h2 class="section-title fade-in">Latest Updates</h2>
+        <p class="section-subtitle fade-in">
+          Stay informed about Bende LGA activities.
+        </p>
+
+        <div class="news-panel">
+          <div class="news-item fade-in">
+            <div class="news-date">
+              <span>12</span>
+              <small>OCT</small>
+            </div>
+            <div class="news-content">
+              <h4>Town Hall Meeting Scheduled</h4>
+              <p>
+                The Chairman invites all residents to the quarterly town hall
+                meeting at the Council Hall.
+              </p>
+            </div>
+          </div>
+          <div class="news-item fade-in">
+            <div class="news-date">
+              <span>05</span>
+              <small>OCT</small>
+            </div>
+            <div class="news-content">
+              <h4>Free Medical Outreach</h4>
+              <p>
+                A 3-day free medical checkup and treatment program begins this
+                Monday in Uzuakoli.
+              </p>
+            </div>
+          </div>
+          <div class="news-item fade-in">
+            <div class="news-date">
+              <span>28</span>
+              <small>SEP</small>
+            </div>
+            <div class="news-content">
+              <h4>Road Maintenance Alert</h4>
+              <p>
+                Repairs on the Bende-Umuahia road will commence next week.
+                Please use alternative routes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Ongoing Projects -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title fade-in">Ongoing Projects</h2>
+        <p class="section-subtitle fade-in">
+          Transparency in community development.
+        </p>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <span class="badge">In Progress</span>
+              <i class="fas fa-road fa-3x"></i>
+            </div>
+            <div class="project-info">
+              <h3>Community Road Expansion</h3>
+              <p style="font-size: 0.9rem; color: #666">
+                Expanding the main market access road to reduce congestion and
+                improve trade logistics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <span class="badge">Near Completion</span>
+              <i class="fas fa-school fa-3x"></i>
+            </div>
+            <div class="project-info">
+              <h3>Primary School Renovation</h3>
+              <p style="font-size: 0.9rem; color: #666">
+                Renovating 3 blocks of classrooms and installing solar power in
+                Ozuitem Primary School.
+              </p>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card fade-in">
+            <div class="project-img">
+              <span class="badge">In Progress</span>
+              <i class="fas fa-tint fa-3x"></i>
+            </div>
+            <div class="project-info">
+              <h3>Clean Water Initiative</h3>
+              <p style="font-size: 0.9rem; color: #666">
+                Drilling of solar-powered boreholes in 5 autonomous communities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- 7. Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-info-box fade-in">
+            <h3>Contact & Emergency</h3>
+            <p style="margin-bottom: 30px; color: #666">
+              Visit our headquarters or reach out via our digital channels.
+            </p>
+
+            <div class="info-row">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Headquarters</strong>
+                <p>
+                  Bende Local Government Secretariat, Bende Town, Abia State.
+                </p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <i class="fas fa-clock"></i>
+              <div>
+                <strong>Working Hours</strong>
+                <p>Mon - Fri: 8:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+
+            <div class="emergency-box">
+              <h4><i class="fas fa-ambulance"></i> Emergency Hotlines</h4>
+              <p>
+                Police: <strong>112</strong> or <strong>0800-BENDE-POL</strong>
+              </p>
+              <p>Ambulance: <strong>0800-BENDE-HEALTH</strong></p>
+            </div>
+          </div>
+
+          <div class="map-placeholder fade-in">
+            <!-- Placeholder for Google Maps API -->
+             
+            <span style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;
+            @media screen and (max-width: 600px) {
+              width: 200px;
+              height: 100px;
+            }
+            ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.567630504612!2d7.634476811090879!3d5.555564965464564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1042d0f44202f21d%3A0xe3e9a6b95a820497!2sBende%20Local%20Government%20Area%20Secratariat!5e1!3m2!1sen!2sng!4v1765264256610!5m2!1sen!2sng" width="500" height="300" style="border:0; @media screen and (max-width: 600px) {
+              width: 200px;
+              height: 100px;
+              
+            }" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p style="line-height: 1.8">
+              The official website of Bende Local Government Area. Serving the
+              people with integrity, accountability, and excellence.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Pay Taxes</a></li>
+              <li><a href="#">Tenders</a></li>
+              <li><a href="#">Staff Login</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Departments</h4>
+            <ul>
+              <li><a href="#">Works</a></li>
+              <li><a href="#">Health</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Agriculture</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2025 Bende Local Government Area. All Rights Reserved.</p>
+          <p style="opacity: 0.6; margin-top: 5px">
+            Powered by <strong>XantSpace.HQ</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS for Interactivity -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        // Change icon
+        const icon = mobileToggle.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Sticky Header Effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        } else {
+          header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.05)";
+        }
+      });
+
+      // Scroll Animation (Intersection Observer)
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/62a0415775.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

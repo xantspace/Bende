@@ -1,0 +1,480 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birth Certification | Bende Local Government Area</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static "css/birth_cert.css" %}">
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-info">
+          <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+          <span><i class="fas fa-envelope"></i> registry@bendelga.gov.ng</span>
+        </div>
+        <div class="top-socials">
+          <span
+            >Follow us: &nbsp; <i class="fab fa-facebook-f"></i> &nbsp;
+            <i class="fab fa-twitter"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <i class="fas fa-landmark"></i>
+            Bende LGA
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+              <a href="#" style="color: var(--green); font-weight: 700"
+                >Services</a
+              >
+            </li>
+            <li><a href="{% url "base" %}#projects">Projects</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><button class="btn btn-green">Check Status</button></li>
+          </ul>
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Birth Certificate Issuance</h1>
+        <div class="breadcrumb">
+          <a href="{% url "base" %}">Home</a> &nbsp;/&nbsp; <a href="{% url "base" %}#services">Services</a>  &nbsp;/&nbsp;
+          Birth Registration
+        </div>
+      </div>
+    </section>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert" 
+    style="text-align: center; margin: 20px; font-size: 1.1rem; padding: 10px; border-radius: 5px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;">
+        <a href="#" class="alert-link">
+    {{ message }}
+        </a>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- Main Content -->
+    <div class="container page-content">
+      <!-- Process Steps -->
+      <div class="steps-container">
+        <div class="step">
+          <span class="step-number">1</span>
+          <h4>Check Eligibility</h4>
+          <p>Ensure you have the hospital birth report and valid ID.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">2</span>
+          <h4>Apply Online</h4>
+          <p>Fill the form below or visit the NPC office at the Secretariat.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">3</span>
+          <h4>Verification</h4>
+          <p>Officers verify details within 48 hours.</p>
+        </div>
+        <div class="step">
+          <span class="step-number">4</span>
+          <h4>Collection</h4>
+          <p>Pick up the signed certificate at the Local Govt Council.</p>
+        </div>
+      </div>
+
+      <div class="split-layout">
+        <!-- Sidebar Info -->
+        <aside>
+          <div class="info-box">
+            <h3>Requirements</h3>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> Hospital Birth Report</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Parent's Marriage Cert
+                (Optional)
+              </li>
+              <li><i class="fas fa-check-circle"></i> Valid ID of Parents</li>
+              <li>
+                <i class="fas fa-check-circle"></i> Passport Photograph of Child
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h3>Registration Fees</h3>
+            <ul>
+              <li>
+                <i class="fas fa-money-bill-wave"></i>
+                <strong>0-60 Days:</strong> Free
+              </li>
+              <li>
+                <i class="fas fa-money-bill-wave"></i>
+                <strong>2 Months - 1 Year:</strong> ₦1,000
+              </li>
+              <li>
+                <i class="fas fa-money-bill-wave"></i>
+                <strong>Above 1 Year:</strong> ₦2,500
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="info-box"
+            style="
+              background-color: var(--white);
+              border: 1px solid #eee;
+              border-left: 4px solid var(--gold);
+            "
+          >
+            <h3>Need Help?</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 10px">
+              Contact the Population Commission Desk:
+            </p>
+            <p>
+              <strong><i class="fas fa-phone"></i> 0803-555-0192</strong>
+            </p>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div style="margin-top: 30px">
+            <h3 style="margin-bottom: 15px; color: var(--dark-blue)">FAQs</h3>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Is it compulsory? <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                Yes, birth registration is mandatory by law in Nigeria for
+                identity purposes.
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Can I apply for an adult? <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="accordion-content">
+                Yes, but you will need an affidavit of age declaration from a
+                court alongside the application.
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Application Form -->
+        <main>
+          <div class="app-form">
+            <div class="form-header">
+              <h2
+                class="section-title"
+                style="font-size: 1.5rem; text-align: left"
+              >
+                New Birth Registration
+              </h2>
+              <p style="color: #666">
+                Please fill all information accurately as it appears on medical
+                records.
+              </p>
+            </div>
+
+            <form id="birthForm" method="POST" action="{% url 'birth_cert' %}">
+              {% csrf_token %}
+              <h4
+                style="
+                  color: var(--gold);
+                  margin-bottom: 15px;
+                  text-transform: uppercase;
+                  font-size: 0.85rem;
+                  letter-spacing: 1px;
+                "
+              >
+                Child's Information
+              </h4>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    class="form-control"
+                    placeholder="e.g. Chinedu"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Surname</label>
+                  <input
+                    type="text"
+                    name="surname"
+                    class="form-control"
+                    placeholder="e.g. Okeke"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <input type="date" name="dob" class="form-control" required />
+                </div>
+
+                 
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select name="gender" class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Place of Birth (Hospital/Clinic Name)</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="place_of_birth"
+                  placeholder="e.g. FMC Umuahia"
+                  required
+                />
+              </div>
+
+              <h4
+                style="
+                  color: var(--gold);
+                  margin: 25px 0 15px 0;
+                  text-transform: uppercase;
+                  font-size: 0.85rem;
+                  letter-spacing: 1px;
+                "
+              >
+                Parents' Information
+              </h4>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Father's Full Name</label>
+                  <input type="text" class="form-control" name="father_name" required />
+                </div>
+                <div class="form-group">
+                  <label>Mother's Full Name</label>
+                  <input type="text" class="form-control" name="mother_name" required />
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="080..."
+                    name="phone"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Home Address (In Bende LGA)</label>
+                  <input type="text" class="form-control" name="home_address" required />
+                </div>
+              </div>
+
+              <h4
+                style="
+                  color: var(--gold);
+                  margin: 25px 0 15px 0;
+                  text-transform: uppercase;
+                  font-size: 0.85rem;
+                  letter-spacing: 1px;
+                "
+              >
+                Supporting Documents
+              </h4>
+              <div class="form-group">
+                <label
+                  >Upload Hospital Report / Immunization Card (Max 2MB)</label
+                >
+                <div
+                  class="file-upload"
+                  onclick="document.getElementById('fileInput').click()"
+                >
+                  <i
+                    class="fas fa-cloud-upload-alt"
+                    style="font-size: 2rem; color: var(--text-light)"
+                  ></i>
+                  <p style="margin-top: 10px">Click to upload image or PDF</p>
+                  <input type="file" id="fileInput" style="display: none" />
+                </div>
+              </div>
+
+              <div style="margin-top: 30px">
+                <button type="submit" class="btn btn-green" style="width: 100%">
+                  Submit Application
+                </button>
+                <p
+                  style="
+                    font-size: 0.8rem;
+                    color: #888;
+                    text-align: center;
+                    margin-top: 10px;
+                  "
+                >
+                  By clicking submit, you attest that the information provided
+                  is true.
+                </p>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p style="line-height: 1.8">
+              The official website of Bende Local Government Area. Serving the
+              people with integrity, accountability, and excellence.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Pay Taxes</a></li>
+              <li><a href="#">Tenders</a></li>
+              <li><a href="#">Staff Login</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Departments</h4>
+            <ul>
+              <li><a href="#">Works</a></li>
+              <li><a href="#">Health</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Agriculture</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 Bende Local Government Area. All Rights Reserved.</p>
+          <p style="opacity: 0.6; margin-top: 5px">
+            Powered by <strong>XantSpace</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS for Interactivity -->
+    <script>
+      // Mobile Menu Toggle (Same as Home)
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const icon = mobileToggle.querySelector("i");
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Sticky Header Logic
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+        } else {
+          header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.05)";
+        }
+      });
+
+      // FAQ Accordion Logic
+      const accordions = document.querySelectorAll(".accordion-header");
+      accordions.forEach((acc) => {
+        acc.addEventListener("click", function () {
+          // Toggle active class on panel
+          const panel = this.nextElementSibling;
+          panel.classList.toggle("active");
+
+          // Rotate Icon
+          const icon = this.querySelector("i");
+          if (panel.classList.contains("active")) {
+            icon.classList.remove("fa-chevron-down");
+            icon.classList.add("fa-chevron-up");
+          } else {
+            icon.classList.remove("fa-chevron-up");
+            icon.classList.add("fa-chevron-down");
+          }
+        });
+      });
+
+      document
+  .getElementById("birthForm")
+  .addEventListener("submit", function (e) {
+    // DON'T prevent default - let form submit!
+    // e.preventDefault();  ← REMOVE THIS LINE
+    
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.innerText;
+
+    // Change button text immediately
+    btn.innerText = "Processing...";
+    btn.style.backgroundColor = "#0A1A2F"; // Dark blue
+    btn.disabled = true; // Prevent double submission
+    
+    // Form will now submit normally to Django
+  });
+      </script>
+  </body>
+</html>

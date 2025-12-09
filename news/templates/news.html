@@ -1,0 +1,409 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News & Updates | Bende Local Government Area</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+
+    <style></style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo"><i class="fas fa-landmark"></i> Bende LGA</div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li>
+              <a href="#" style="color: var(--green); font-weight: 700">News</a>
+            </li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+      <div class="container">
+        <h1>News & Updates</h1>
+        <p>
+          Stay informed with the latest developments, announcements, and stories
+          from Bende.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container content-wrapper">
+      <!-- Left Column: Posts -->
+      <main class="blog-grid">
+        <!-- Featured Post (Static Example - Use Django 'if forloop.first' logic here) -->
+        <!-- Django: {% if posts.0 %} -->
+        <article class="post-card featured">
+          <div class="post-image">
+            <span class="category-badge">Development</span>
+            <!-- Django: <img src="{{ posts.0.image.url }}" alt="{{ posts.0.title }}"> -->
+            <img
+              src="https://via.placeholder.com/800x600"
+              alt="Featured Project"
+            />
+          </div>
+          <div class="post-content">
+            <div class="meta-data">
+              <span><i class="far fa-calendar-alt"></i> Oct 24, 2023</span>
+              <span><i class="far fa-user"></i> Admin</span>
+            </div>
+            <a href="#">
+              <h2 class="post-title" style="font-size: 1.8rem">
+                Commissioning of the New Bende Technology Hub
+              </h2>
+            </a>
+            <p class="post-excerpt">
+              The Local Government Chairman officially opened the new Tech Hub
+              today, promising to empower 500 youths annually with digital
+              skills ranging from coding to data analysis...
+            </p>
+            <a href="#" class="read-more"
+              >Read Full Story <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+        <!-- Django: {% endif %} -->
+
+        <!-- Standard Grid Posts -->
+        <!-- Django: {% for post in posts|slice:"1:" %} -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+          "
+        >
+          <!-- Post Item 1 -->
+          <article class="post-card">
+            <div class="post-image">
+              <span class="category-badge" style="background: var(--gold)"
+                >Health</span
+              >
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Health Outreach"
+              />
+            </div>
+            <div class="post-content">
+              <div class="meta-data">
+                <span><i class="far fa-calendar-alt"></i> Oct 20, 2023</span>
+              </div>
+              <a href="#"
+                ><h3 class="post-title">
+                  Free Medical Outreach: Schedule for November
+                </h3></a
+              >
+              <p class="post-excerpt">
+                Comprehensive list of dates and locations for the upcoming free
+                malaria and eye test outreach.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- Post Item 2 -->
+          <article class="post-card">
+            <div class="post-image">
+              <span class="category-badge" style="background: var(--dark-blue)"
+                >Policy</span
+              >
+              <img src="https://via.placeholder.com/400x300" alt="Tax Policy" />
+            </div>
+            <div class="post-content">
+              <div class="meta-data">
+                <span><i class="far fa-calendar-alt"></i> Oct 15, 2023</span>
+              </div>
+              <a href="#"
+                ><h3 class="post-title">
+                  New Environmental Levy Guidelines Released
+                </h3></a
+              >
+              <p class="post-excerpt">
+                Understanding the new zones for waste collection and how to
+                calculate your annual levy correctly.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- Post Item 3 -->
+          <article class="post-card">
+            <div class="post-image">
+              <span class="category-badge">Agriculture</span>
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Agriculture"
+              />
+            </div>
+            <div class="post-content">
+              <div class="meta-data">
+                <span><i class="far fa-calendar-alt"></i> Oct 10, 2023</span>
+              </div>
+              <a href="#"
+                ><h3 class="post-title">
+                  Fertilizer Distribution for 2024 Farming Season
+                </h3></a
+              >
+              <p class="post-excerpt">
+                Registration for subsidized fertilizers begins next week at the
+                Agric Department.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+
+          <!-- Post Item 4 -->
+          <article class="post-card">
+            <div class="post-image">
+              <span class="category-badge" style="background: var(--gold)"
+                >Culture</span
+              >
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="New Yam Festival"
+              />
+            </div>
+            <div class="post-content">
+              <div class="meta-data">
+                <span><i class="far fa-calendar-alt"></i> Sep 28, 2023</span>
+              </div>
+              <a href="#"
+                ><h3 class="post-title">
+                  Highlights from the 2023 Iri Ji Festival
+                </h3></a
+              >
+              <p class="post-excerpt">
+                A colorful display of culture and unity as communities gathered
+                to celebrate the new yam harvest.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+        </div>
+        <!-- Django: {% endfor %} -->
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <!-- Django: {% if posts.has_previous %} -->
+          <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
+          <!-- Django: {% endif %} -->
+
+          <a href="#" class="page-link active">1</a>
+          <a href="#" class="page-link">2</a>
+          <a href="#" class="page-link">3</a>
+
+          <!-- Django: {% if posts.has_next %} -->
+          <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+          <!-- Django: {% endif %} -->
+        </div>
+      </main>
+
+      <!-- Right Column: Sidebar -->
+      <aside class="sidebar">
+        <!-- Search Widget -->
+        <div class="widget">
+          <h4 class="widget-title">Search</h4>
+          <!-- Django: <form method="GET" action="{% url 'blog_search' %}"> -->
+          <form class="search-form">
+            <input
+              type="text"
+              name="q"
+              class="search-input"
+              placeholder="Search news..."
+            />
+            <button type="submit" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="widget">
+          <h4 class="widget-title">Categories</h4>
+          <ul class="cat-list">
+            <!-- Django Loop through categories -->
+            <li>
+              <a href="#">Governance</a> <span class="cat-count">12</span>
+            </li>
+            <li>
+              <a href="#">Infrastructure</a> <span class="cat-count">8</span>
+            </li>
+            <li><a href="#">Health</a> <span class="cat-count">5</span></li>
+            <li>
+              <a href="#">Agriculture</a> <span class="cat-count">10</span>
+            </li>
+            <li>
+              <a href="#">Culture & Tourism</a> <span class="cat-count">4</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Recent Posts Widget -->
+        <div class="widget">
+          <h4 class="widget-title">Recent Posts</h4>
+
+          <div class="recent-post-item">
+            <div class="recent-thumb">
+              <img src="https://via.placeholder.com/150" alt="Thumb" />
+            </div>
+            <div class="recent-info">
+              <a href="#"><h5>Council Budget Approved for 2024</h5></a>
+              <span>Oct 22, 2023</span>
+            </div>
+          </div>
+
+          <div class="recent-post-item">
+            <div class="recent-thumb">
+              <img src="https://via.placeholder.com/150" alt="Thumb" />
+            </div>
+            <div class="recent-info">
+              <a href="#"><h5>Road Safety Awareness Campaign</h5></a>
+              <span>Oct 18, 2023</span>
+            </div>
+          </div>
+
+          <div class="recent-post-item">
+            <div class="recent-thumb">
+              <img src="https://via.placeholder.com/150" alt="Thumb" />
+            </div>
+            <div class="recent-info">
+              <a href="#"><h5>Scholarship Winners Announced</h5></a>
+              <span>Oct 15, 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscribe Widget -->
+        <div class="widget" style="background: var(--dark-blue); color: white">
+          <h4
+            class="widget-title"
+            style="
+              color: white;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            "
+          >
+            Newsletter
+          </h4>
+          <p style="font-size: 0.9rem; margin-bottom: 15px; opacity: 0.8">
+            Subscribe to get the latest LGA news delivered to your inbox.
+          </p>
+          <form>
+            <input
+              type="email"
+              placeholder="Your Email Address"
+              style="
+                width: 100%;
+                padding: 10px;
+                border-radius: 6px;
+                border: none;
+                margin-bottom: 10px;
+              "
+            />
+            <button type="submit" class="btn btn-green" style="width: 100%">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p>Building a stronger, cleaner, and united community.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <ul style="display: flex; gap: 10px">
+              <li>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2023 Bende Local Government Area. Powered by
+            <strong>XantSpace</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Basic Mobile Toggle Script -->
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileToggle.addEventListener("click", () => {
+        // Simple display toggle for demo purposes
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.position = "absolute";
+          navLinks.style.top = "80px";
+          navLinks.style.left = "0";
+          navLinks.style.width = "100%";
+          navLinks.style.background = "white";
+          navLinks.style.padding = "20px";
+          navLinks.style.boxShadow = "0 10px 10px rgba(0,0,0,0.1)";
+        }
+      });
+    </script>
+  </body>
+</html>

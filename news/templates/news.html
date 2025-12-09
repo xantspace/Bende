@@ -30,12 +30,15 @@
         <nav>
           <div class="logo"><i class="fas fa-landmark"></i> Bende LGA</div>
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="{% url "base" %}">Home</a></li>
+            <li><a href="{% url "about" %}">About</a></li>
+            <li><a href="{% url "base" %}#services">Services</a></li>
             <li><a href="#">Projects</a></li>
             <li>
-              <a href="#" style="color: var(--green); font-weight: 700">News</a>
+              <a href="#" 
+              style="
+              color: var(--green); 
+              font-weight: 700;">News</a>
             </li>
             <li><a href="#">Contact</a></li>
           </ul>
@@ -239,7 +242,7 @@
         <!-- Search Widget -->
         <div class="widget">
           <h4 class="widget-title">Search</h4>
-          <!-- Django: <form method="GET" action="{% url 'blog_search' %}"> -->
+          <!-- Django: <form method="GET" action=""> -->
           <form class="search-form">
             <input
               type="text"

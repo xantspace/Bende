@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bende Local Government Area</title>
+    
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --dark-blue: #0A1A2F;
+            --green: #1FAF5A;
+            --white: #FFFFFF;
+            --gold: #C8A43F;
+            --red: #D32F2F;
+            --gray-bg: #F4F7F6;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --font-head: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius: 8px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            display: inline-block; padding: 12px 28px; border-radius: var(--radius);
+            font-weight: 600; cursor: pointer; border: none; font-family: var(--font-head);
+        }
+        .btn-green { background-color: var(--green); color: var(--white); }
+        .btn-green:hover { background-color: #168a46; transform: translateY(-2px); }
+
+        /* --- HEADER (CONSTANT) --- */
+        .top-bar { background-color: var(--dark-blue); color: var(--white); padding: 10px 0; font-size: 0.9rem; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-info span { margin-right: 20px; }
+        .top-info i { color: var(--green); margin-right: 5px; }
+
+        header { background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.5rem; color: var(--dark-blue); display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--green); font-size: 1.8rem; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--dark-blue); font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--green); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--dark-blue); }
+
+        /* --- PAGE HERO --- */
+        .page-hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0f2b4d 100%);
+            padding: 100px 0 80px 0;
+            color: var(--white);
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .breadcrumb { font-size: 0.9rem; opacity: 0.8; }
+        .breadcrumb a { color: var(--gold); }
+
+        /* --- CONTACT LAYOUT --- */
+        .contact-section { padding: 80px 0; }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        /* Left Side: Info */
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+            height: 100%;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .info-icon {
+            width: 50px; height: 50px;
+            background: rgba(31, 175, 90, 0.1);
+            color: var(--green);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .info-content h4 { font-family: var(--font-head); color: var(--dark-blue); margin-bottom: 5px; }
+        .info-content p { color: var(--text-light); font-size: 0.95rem; }
+
+        .emergency-box {
+            margin-top: 40px;
+            background: #FFF4F4;
+            border-left: 4px solid var(--red);
+            padding: 25px;
+            border-radius: 4px;
+        }
+        .emergency-box h4 { color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+        /* Right Side: Form */
+        .form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--green);
+        }
+        
+        .form-header h3 { font-family: var(--font-head); color: var(--dark-blue); margin-bottom: 10px; }
+        .form-header p { color: var(--text-light); margin-bottom: 30px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--dark-blue); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            transition: 0.3s;
+            background: #f9f9f9;
+        }
+        .form-control:focus { outline: none; border-color: var(--green); background: #fff; }
+        
+        textarea.form-control { resize: vertical; min-height: 150px; }
+
+        /* Map Section */
+        .map-section {
+            height: 400px;
+            width: 100%;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-weight: 600;
+            margin-top: 60px;
+            position: relative;
+        }
+        /* Overlay on map to match theme slightly */
+        .map-overlay {
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 100%);
+            pointer-events: none;
+        }
+
+        /* --- FOOTER (CONSTANT) --- */
+        footer { background-color: var(--dark-blue); color: #b0b8c2; padding: 60px 0 0 0; font-size: 0.9rem; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: var(--white); margin-bottom: 20px; font-family: var(--font-head); }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--green); }
+        .footer-bottom { background: rgba(0,0,0,0.2); padding: 20px 0; text-align: center; margin-top: 20px; }
+        .socials a { display: inline-flex; justify-content: center; align-items: center; width: 35px; height: 35px; background: rgba(255,255,255,0.1); border-radius: 50%; margin-right: 10px; transition: 0.3s; }
+        .socials a:hover { background: var(--green); color: white; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Header (CONSTANT) -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+                <span><i class="fas fa-envelope"></i> helpdesk@bendelga.gov.ng</span>
+            </div>
+            <div class="top-socials">
+                <span>Follow us: &nbsp; <i class="fab fa-facebook-f"></i> &nbsp; <i class="fab fa-twitter"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-landmark"></i>
+                    Bende LGA
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#" style="color:var(--green); font-weight:700;">Contact</a></li>
+                    <li><button class="btn btn-green">Submit Request</button></li>
+                </ul>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> &nbsp;/&nbsp; Get in Touch
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Contact Content -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                
+                <!-- Left: Info -->
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Headquarters</h4>
+                            <p>Bende Local Government Secretariat,<br>Bende Town, Abia State, Nigeria.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Phone Support</h4>
+                            <p>+234 800 BENDE GOV<br>+234 812 345 6789</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <h4>Email Address</h4>
+                            <p>info@bendelga.gov.ng<br>support@bendelga.gov.ng</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="info-content">
+                            <h4>Working Hours</h4>
+                            <p>Mon - Fri: 8:00 AM - 4:00 PM<br>Sat - Sun: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="emergency-box">
+                        <h4><i class="fas fa-ambulance"></i> Emergency Hotlines</h4>
+                        <p style="margin-bottom: 5px;"><strong>Police:</strong> 112 or 080-POLICE-BEN</p>
+                        <p style="margin-bottom: 5px;"><strong>Ambulance:</strong> 080-HEALTH-BEN</p>
+                        <p><strong>Fire Service:</strong> 080-FIRE-BEN</p>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3>Send us a Message</h3>
+                        <p>Have a question, complaint, or suggestion? Fill out the form below and our team will get back to you.</p>
+                    </div>
+
+                    <!-- Django Form Start -->
+                    <!-- <form method="POST" action="{% url 'contact_submit' %}"> -->
+                    <form id="contactForm">
+                        <!-- {% csrf_token %} -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" class="form-control" placeholder="example@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" name="phone" class="form-control" placeholder="080...">
+                            </div>
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select name="department" class="form-control">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="works">Works & Infrastructure</option>
+                                    <option value="health">Health Department</option>
+                                    <option value="education">Education</option>
+                                    <option value="agriculture">Agriculture</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" class="form-control" placeholder="Brief subject of your message" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-green" style="width: 100%;">Send Message</button>
+                    </form>
+                    <!-- Django Form End -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Map Placeholder -->
+    <div class="map-section">
+        <div class="map-overlay"></div>
+        <div style="text-align: center;">
+            <i class="fas fa-map-marked-alt fa-3x" style="color: #ccc; margin-bottom: 10px;"></i>
+            <p>Google Maps Integration Area</p>
+            <small>Bende Local Government Secretariat</small>
+        </div>
+        <!-- Embed Google Map Iframe here -->
+        <!-- <iframe src="..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+    </div>
+
+    <!-- 5. Footer (CONSTANT) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 15px;">
+                        <i class="fas fa-landmark" style="color: var(--green);"></i> Bende LGA
+                    </div>
+                    <p style="line-height:1.8;">The official website of Bende Local Government Area. Serving the people with integrity, accountability, and excellence.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Pay Taxes</a></li>
+                        <li><a href="#">Tenders</a></li>
+                        <li><a href="#">Staff Login</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Departments</h4>
+                    <ul>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">Health</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Agriculture</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Bende Local Government Area. All Rights Reserved.</p>
+                <p style="opacity: 0.6; margin-top:5px;">Powered by <strong>XantSpace</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Sticky Header Logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50){
+                header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+            } else {
+                header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.05)";
+            }
+        });
+
+        // Form Submit Simulation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Sending Message...";
+            btn.style.backgroundColor = "#0A1A2F"; // Dark blue feedback
+            
+            setTimeout(() => {
+                alert("Message Sent! We will contact you shortly.");
+                btn.innerText = "Sent Successfully";
+                btn.style.backgroundColor = "#1FAF5A";
+                this.reset();
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

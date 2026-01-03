@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup | Bende Local Government Area</title>
+
+    <!-- Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES & RESET (GLOBAL) --- */
+      :root {
+        --dark-blue: #0a1a2f;
+        --green: #1faf5a;
+        --white: #ffffff;
+        --gold: #c8a43f;
+        --gray-bg: #f0f2f5;
+        --text-dark: #333333;
+        --font-head: "Poppins", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --radius: 8px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --transition: all 0.6s ease-in-out;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--white);
+        color: var(--text-dark);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* --- UTILITIES --- */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .btn {
+        border-radius: 50px;
+        background-color: var(--green);
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in, background 0.3s;
+        cursor: pointer;
+        border: 1px solid var(--green);
+        font-family: var(--font-head);
+      }
+      .btn:active {
+        transform: scale(0.95);
+      }
+      .btn:hover {
+        background-color: #168a46;
+      }
+
+      .btn.ghost {
+        background-color: transparent;
+        border-color: #ffffff;
+      }
+      .btn.ghost:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* --- HEADER (UNCHANGED) --- */
+      .top-bar {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+      .top-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .top-info span {
+        margin-right: 20px;
+      }
+      .top-info i {
+        color: var(--green);
+        margin-right: 5px;
+      }
+
+      header {
+        background: var(--white);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .logo {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--dark-blue);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        color: var(--green);
+        font-size: 1.8rem;
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-links a {
+        font-weight: 500;
+        color: var(--dark-blue);
+        font-size: 0.95rem;
+      }
+      .nav-links a:hover {
+        color: var(--green);
+      }
+      .mobile-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* --- AUTH SECTION --- */
+      .auth-wrapper {
+        background: var(--gray-bg);
+        flex: 1; /* Pushes footer down */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+        background-image: radial-gradient(
+          circle at 10% 20%,
+          rgba(31, 175, 90, 0.05) 0%,
+          transparent 40%
+        );
+      }
+
+      .auth-card {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15),
+          0 10px 10px rgba(0, 0, 0, 0.12);
+        position: relative;
+        overflow: hidden;
+        width: 900px;
+        max-width: 100%;
+        min-height: 600px;
+        transition: border 0.3s;
+      }
+
+      /* --- ROLE TOGGLE (THE NEW FEATURE) --- */
+      .role-switch-container {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 200;
+        background: #f1f1f1;
+        padding: 5px;
+        border-radius: 30px;
+        display: flex;
+        gap: 5px;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .role-btn {
+        border: none;
+        background: transparent;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: #777;
+        font-family: var(--font-head);
+        transition: 0.3s;
+      }
+
+      .role-btn.active {
+        background: var(--white);
+        color: var(--dark-blue);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Admin Mode Styling overrides via JS class */
+      .auth-card.admin-mode .role-btn.active[data-role="admin"] {
+        color: var(--green);
+      }
+      .auth-card.admin-mode .btn:not(.ghost) {
+        background-color: var(--gold);
+        border-color: var(--gold);
+      }
+      .auth-card.admin-mode .btn:not(.ghost):hover {
+        background-color: #b08d2e;
+      }
+
+      /* --- FORMS --- */
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: var(--transition);
+      }
+
+      form {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+        padding-top: 50px; /* Space for Role Toggle */
+      }
+
+      h1 {
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--dark-blue);
+        font-family: var(--font-head);
+      }
+      .social-container {
+        margin: 15px 0;
+      }
+      .social-container a {
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+        color: var(--dark-blue);
+        transition: 0.3s;
+      }
+      .social-container a:hover {
+        background: var(--green);
+        color: white;
+        border-color: var(--green);
+      }
+
+      span {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      input {
+        background-color: #f8f9fa;
+        border: 1px solid #eee;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+      }
+      input:focus {
+        border-color: var(--green);
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(31, 175, 90, 0.1);
+      }
+
+      /* Hide specific inputs based on role */
+      .admin-only {
+        display: none;
+      }
+      .user-only {
+        display: block;
+      }
+
+      /* When Admin Mode is active */
+      .auth-card.admin-mode .admin-only {
+        display: block;
+        border-left: 3px solid var(--gold);
+      }
+      .auth-card.admin-mode .user-only {
+        display: none;
+      }
+      .auth-card.admin-mode input:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(200, 164, 63, 0.1);
+      }
+      .auth-card.admin-mode .social-container {
+        display: none;
+      } /* Admins don't use social login usually */
+
+      /* Positions & Animation */
+      .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+      }
+      .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      .auth-card.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+      }
+      .auth-card.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+      }
+
+      @keyframes show {
+        0%,
+        49.99% {
+          opacity: 0;
+          z-index: 1;
+        }
+        50%,
+        100% {
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+
+      /* --- OVERLAY --- */
+      .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: var(--transition);
+        z-index: 100;
+      }
+
+      .overlay {
+        background: linear-gradient(135deg, var(--dark-blue) 0%, #0f2b4d 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #ffffff;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: var(--transition);
+      }
+
+      /* Admin Overlay Color */
+      .auth-card.admin-mode .overlay {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #333 100%
+        ); /* Darker for Admin */
+      }
+
+      .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: var(--transition);
+      }
+
+      .overlay-left {
+        transform: translateX(-20%);
+      }
+      .overlay-right {
+        right: 0;
+        transform: translateX(0);
+      }
+
+      .auth-card.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+      }
+      .auth-card.right-panel-active .overlay {
+        transform: translateX(50%);
+      }
+      .auth-card.right-panel-active .overlay-left {
+        transform: translateX(0);
+      }
+      .auth-card.right-panel-active .overlay-right {
+        transform: translateX(20%);
+      }
+
+      /* --- MOBILE --- */
+      .mobile-switch-text {
+        display: none;
+        margin-top: 15px;
+        color: var(--green);
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .auth-card.admin-mode .mobile-switch-text {
+        color: var(--gold);
+      }
+
+      /* --- FOOTER (UNCHANGED) --- */
+      footer {
+        background-color: var(--dark-blue);
+        color: #b0b8c2;
+        padding: 60px 0 0 0;
+        font-size: 0.9rem;
+        margin-top: auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-col h4 {
+        color: var(--white);
+        margin-bottom: 20px;
+        font-family: var(--font-head);
+      }
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a:hover {
+        color: var(--green);
+      }
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 20px 0;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .socials a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: 0.3s;
+      }
+      .socials a:hover {
+        background: var(--green);
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .mobile-toggle {
+          display: block;
+          color: var(--dark-blue);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .overlay-container {
+          display: none;
+        }
+        .auth-card {
+          width: 100%;
+          margin: 0 10px;
+          min-height: 700px;
+        }
+        .sign-in-container {
+          opacity: 1;
+          z-index: 2;
+          width: 100%;
+        }
+        .sign-up-container {
+          opacity: 0;
+          z-index: 1;
+          width: 100%;
+        }
+        .auth-card.right-panel-active .sign-in-container {
+          opacity: 0;
+          pointer-events: none;
+        }
+        .auth-card.right-panel-active .sign-up-container {
+          opacity: 1;
+          pointer-events: auto;
+          transform: none;
+          animation: none;
+        }
+        .mobile-switch-text {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Header -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-info">
+          <span><i class="fas fa-phone"></i> +234 800 BENDE GOV</span>
+          <span><i class="fas fa-envelope"></i> helpdesk@bendelga.gov.ng</span>
+        </div>
+        <div class="top-socials">
+          <span
+            >Follow us: &nbsp; <i class="fab fa-facebook-f"></i> &nbsp;
+            <i class="fab fa-twitter"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <i class="fas fa-landmark"></i>
+            Bende LGA
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <a
+                href="#"
+                class="btn"
+                style="padding: 10px 25px; font-size: 0.8rem"
+                >Help</a
+              >
+            </li>
+          </ul>
+          <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="auth-wrapper">
+      <div class="auth-card" id="authCard">
+        <!-- ROLE TOGGLE (Resident vs Admin) -->
+        <div class="role-switch-container">
+          <button
+            class="role-btn active"
+            onclick="setRole('resident')"
+            data-role="resident"
+          >
+            Resident
+          </button>
+          <button class="role-btn" onclick="setRole('admin')" data-role="admin">
+            Admin / Staff
+          </button>
+        </div>
+
+        <!-- SIGN UP FORM (Dynamic) -->
+        <div class="form-container sign-up-container">
+          <!-- Django: <form method="POST" action="{% url 'register' %}"> -->
+          <form id="signupForm">
+            <!-- Django: <input type="hidden" name="role" id="signupRole" value="resident"> -->
+
+            <h1 id="signupTitle">Create Account</h1>
+
+            <div class="social-container">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-google"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span id="signupSub">or use your email for registration</span>
+
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+
+            <!-- Resident Input -->
+            <input
+              type="text"
+              name="nin"
+              class="user-only"
+              placeholder="NIN (National ID Number)"
+            />
+
+            <!-- Admin Input (Hidden by default) -->
+            <input
+              type="text"
+              name="staff_id"
+              class="admin-only"
+              placeholder="Staff ID Number"
+            />
+            <input
+              type="text"
+              name="department_code"
+              class="admin-only"
+              placeholder="Department Code"
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="confirm-password"
+              name="confirmpassword"
+              placeholder="Confirm Password"
+              required
+            />
+
+            <button type="submit" class="btn">Sign Up</button>
+            <p class="mobile-switch-text" id="mobToSignIn">
+              Already have an account? Sign In
+            </p>
+          </form>
+        </div>
+
+        <!-- SIGN IN FORM (Dynamic) -->
+        <div class="form-container sign-in-container">
+          <!-- Django: <form method="POST" action="{% url 'login' %}"> -->
+          <form id="signinForm">
+            <!-- Django: <input type="hidden" name="role" id="loginRole" value="resident"> -->
+
+            <h1 id="signinTitle">Resident Login</h1>
+
+            <div class="social-container">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-google"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span id="signinSub">or use your account</span>
+
+            <!-- Login Inputs -->
+            <input type="email" name="email" placeholder="Email" required />
+
+            <!-- Admin Specific Login Field -->
+            <input
+              type="text"
+              name="access_key"
+              class="admin-only"
+              placeholder="Access Key (2FA)"
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+
+            <a
+              href="#"
+              style="
+                font-size: 0.8rem;
+                margin: 15px 0;
+                text-decoration: underline;
+              "
+              >Forgot your password?</a
+            >
+            <button type="submit" class="btn">Sign In</button>
+            <p class="mobile-switch-text" id="mobToSignUp">
+              Don't have an account? Sign Up
+            </p>
+          </form>
+        </div>
+
+        <!-- OVERLAY (Animation Panel) -->
+        <div class="overlay-container">
+          <div class="overlay">
+            <!-- Left Overlay (Shows when Signup is Active) -->
+            <div class="overlay-panel overlay-left">
+              <h1 id="overlayLeftTitle" style="color: var(--green)">
+                Welcome Back! <br />
+                i lota la!
+              </h1>
+              <p id="overlayLeftDesc">
+                To keep connected with Bende LGA services please login with your
+                personal info
+              </p>
+              <button class="btn ghost" id="signIn">Sign In</button>
+            </div>
+
+            <!-- Right Overlay (Shows when Login is Active) -->
+            <div class="overlay-panel overlay-right">
+              <h1 id="overlayRightTitle" style="color: var(--green)">
+                Hello, Resident!
+              </h1>
+              <p id="overlayRightDesc">
+                Enter your details to register for permits, tax payments, and
+                community services
+              </p>
+              <button class="btn ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <i class="fas fa-landmark" style="color: var(--green)"></i> Bende
+              LGA
+            </div>
+            <p style="line-height: 1.8">
+              The official website of Bende Local Government Area. Serving the
+              people with integrity, accountability, and excellence.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Pay Taxes</a></li>
+              <li><a href="#">Tenders</a></li>
+              <li><a href="#">Staff Login</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Departments</h4>
+            <ul>
+              <li><a href="#">Works</a></li>
+              <li><a href="#">Health</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Agriculture</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>&copy; 2023 Bende Local Government Area. All Rights Reserved.</p>
+          <p style="opacity: 0.6; margin-top: 5px">
+            Powered by <strong>XantSpace</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+      // --- 1. SLIDING ANIMATION ---
+      const authCard = document.getElementById("authCard");
+      const signUpBtn = document.getElementById("signUp");
+      const signInBtn = document.getElementById("signIn");
+      const mobToSignUp = document.getElementById("mobToSignUp");
+      const mobToSignIn = document.getElementById("mobToSignIn");
+
+      // Functions to switch panels
+      const showSignUp = () => authCard.classList.add("right-panel-active");
+      const showSignIn = () => authCard.classList.remove("right-panel-active");
+
+      // Event Listeners
+      signUpBtn.addEventListener("click", showSignUp);
+      signInBtn.addEventListener("click", showSignIn);
+      mobToSignUp.addEventListener("click", showSignUp);
+      mobToSignIn.addEventListener("click", showSignIn);
+
+      // --- 2. ROLE TOGGLE LOGIC (Resident vs Admin) ---
+      function setRole(role) {
+        const roleBtns = document.querySelectorAll(".role-btn");
+
+        // Visual Toggle Button State
+        roleBtns.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.dataset.role === role) btn.classList.add("active");
+        });
+
+        // Update Titles & Colors
+        const signupTitle = document.getElementById("signupTitle");
+        const signinTitle = document.getElementById("signinTitle");
+        const overlayRightTitle = document.getElementById("overlayRightTitle");
+        const overlayRightDesc = document.getElementById("overlayRightDesc");
+
+        if (role === "admin") {
+          // Switch to Admin Mode
+          authCard.classList.add("admin-mode");
+
+          signupTitle.innerText = "Admin Registration";
+          signinTitle.innerText = "Staff Portal Login";
+
+          overlayRightTitle.innerText = "Authorized Personnel";
+          overlayRightDesc.innerText =
+            "Access the administrative dashboard to manage permits and view reports.";
+
+          // You can also change the form 'action' attribute here for Django
+          // document.getElementById('signinForm').action = "/admin-login-url/";
+        } else {
+          // Switch to User Mode
+          authCard.classList.remove("admin-mode");
+
+          signupTitle.innerText = "Create Account";
+          signinTitle.innerText = "Resident Login";
+
+          overlayRightTitle.innerText = "Hello, Resident!";
+          overlayRightDesc.innerText =
+            "Enter your details to register for permits, tax payments, and community services.";
+        }
+      }
+
+      // Mobile Nav Toggle
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      mobileToggle.addEventListener("click", () => {
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+          navLinks.style.position = "absolute";
+          navLinks.style.top = "80px";
+          navLinks.style.left = "0";
+          navLinks.style.width = "100%";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.background = "white";
+          navLinks.style.padding = "20px";
+          navLinks.style.zIndex = "999";
+          navLinks.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+        }
+      });
+    </script>
+  </body>
+</html>

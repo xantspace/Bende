@@ -1,9 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Business Permits | Bende Local Government Area</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Register your business or renew your operating permit in Bende LGA. Fast tracking for SME and Corporate licenses." />
+    <meta name="keywords" content="Bende Business Permit, LGA License, Shop Permit, Corporate Tax, SME Registration Bende" />
+    <meta name="author" content="Bende Local Government" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Business Permits | Bende Local Government Area" />
+    <meta property="og:description" content="Register your business or renew your operating permit in Bende LGA. Fast tracking for SME and Corporate licenses." />
+    <meta property="og:image" content="{% static 'img/ABIA.png' %}" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Business Permits | Bende LGA" />
+    <meta name="twitter:description" content="Register your business or renew your operating permit in Bende LGA. Fast tracking for SME and Corporate licenses." />
+    <meta name="twitter:image" content="{% static 'img/ABIA.png' %}" />
 
     <!-- Fonts: Poppins & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,7 +81,7 @@
 
       /* --- UTILITIES --- */
       .container {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -376,6 +394,9 @@
       }
 
       @media (max-width: 768px) {
+        html {
+          font-size: 85%;
+        }
         .form-row {
           grid-template-columns: 1fr;
         }

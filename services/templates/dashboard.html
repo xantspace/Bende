@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Dashboard | Bende Local Government Area</title>
+    <meta name="robots" content="noindex, nofollow" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,8 +80,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0;
         padding: 0 20px;
       }
       .top-info span {
@@ -99,8 +101,8 @@
         border-bottom: 1px solid var(--border-color);
       }
       .header-container {
-        max-width: 1200px;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0;
         padding: 0 20px;
       }
       nav {
@@ -160,7 +162,7 @@
       /* --- DASHBOARD LAYOUT --- */
       .dashboard-wrapper {
         display: flex;
-        max-width: 1200px;
+        max-width: 100%;
         margin: 30px auto;
         width: 100%;
         padding: 0 20px;
@@ -471,7 +473,7 @@
         grid-template-columns: 2fr 1fr 1fr 1fr;
         gap: 40px;
         margin-bottom: 40px;
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto 40px auto;
         padding: 0 20px;
       }
@@ -530,6 +532,9 @@
       }
 
       @media (max-width: 600px) {
+        html {
+          font-size: 85%;
+        }
         .footer-grid {
           grid-template-columns: 1fr;
         }

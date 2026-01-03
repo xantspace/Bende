@@ -39,7 +39,7 @@ ul {
 
 /* --- UTILITIES --- */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -588,6 +588,10 @@ footer {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  html {
+    font-size: 85%;
+  }
+
   .top-bar {
     display: none;
   }

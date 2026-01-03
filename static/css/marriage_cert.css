@@ -38,7 +38,7 @@ ul {
 
 /* --- UTILITIES --- */
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -354,8 +354,13 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+  html {
+    font-size: 85%;
+  }
   .split-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse; /* Main content on top, Sidebar below */
+    gap: 40px;
   }
   .form-grid {
     grid-template-columns: 1fr;

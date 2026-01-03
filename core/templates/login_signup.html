@@ -1,9 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login & Signup | Bende Local Government Area</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Secure Login and Signup portal for Bende LGA. Access your personal dashboard, pay taxes, and track service applications." />
+    <meta name="keywords" content="Bende LGA Login, Bende Portal, Sign Up, Tax Payment, Service Status, Citizen Dashboard" />
+    <meta name="author" content="Bende Local Government" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Login & Signup | Bende Local Government Area" />
+    <meta property="og:description" content="Secure Login and Signup portal for Bende LGA. Access your personal dashboard and services." />
+    <meta property="og:image" content="{% static 'img/ABIA.png' %}" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Login & Signup | Bende LGA" />
+    <meta name="twitter:description" content="Secure Login and Signup portal for Bende LGA. Access your personal dashboard and services." />
+    <meta name="twitter:image" content="{% static 'img/ABIA.png' %}" />
 
     <!-- Fonts: Poppins & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,7 +80,7 @@
 
       /* --- UTILITIES --- */
       .container {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -70,15 +88,16 @@
         border-radius: 50px;
         background-color: var(--green);
         color: #ffffff;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 12px 45px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 10px 32px;
+        letter-spacing: 0.5px;
+        text-transform: none;
         transition: transform 80ms ease-in, background 0.3s;
         cursor: pointer;
         border: 1px solid var(--green);
         font-family: var(--font-head);
+        box-shadow: 0 4px 6px rgba(31, 175, 90, 0.2);
       }
       .btn:active {
         transform: scale(0.95);
@@ -177,14 +196,13 @@
 
       .auth-card {
         background-color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15),
-          0 10px 10px rgba(0, 0, 0, 0.12);
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         position: relative;
         overflow: hidden;
-        width: 900px;
+        width: 800px;
         max-width: 100%;
-        min-height: 600px;
+        min-height: 520px;
         transition: border 0.3s;
       }
 
@@ -256,7 +274,8 @@
 
       h1 {
         font-weight: 700;
-        margin-bottom: 15px;
+        font-size: 1.7rem;
+        margin-bottom: 10px;
         color: var(--dark-blue);
         font-family: var(--font-head);
       }
@@ -290,11 +309,12 @@
       input {
         background-color: #f8f9fa;
         border: 1px solid #eee;
-        padding: 12px 15px;
-        margin: 8px 0;
+        padding: 10px 15px;
+        margin: 6px 0;
         width: 100%;
-        border-radius: 8px;
+        border-radius: 12px;
         outline: none;
+        font-size: 14px;
         transition: 0.3s;
       }
       input:focus {
@@ -494,8 +514,9 @@
       }
 
       @media (max-width: 768px) {
+        html { font-size: 85%; }
         .nav-links {
-          display: none;
+          display: none; /* JS handles toggle */
         }
         .mobile-toggle {
           display: block;
@@ -507,31 +528,50 @@
         .overlay-container {
           display: none;
         }
+        
+        /* Fix Layout Collapsing */
         .auth-card {
           width: 100%;
-          margin: 0 10px;
-          min-height: 700px;
+          margin: 0;
+          min-height: 480px; 
+          padding-bottom: 30px;
+          height: auto;
         }
-        .sign-in-container {
-          opacity: 1;
-          z-index: 2;
+
+        /* Forms become relative blocks to take up space */
+        .form-container {
+          position: relative;
           width: 100%;
+          height: auto;
+          top: auto;
+          left: auto;
+          transition: none;
+        }
+
+        form {
+           padding: 60px 20px 20px; /* More top padding for role switch */
+        }
+
+        /* Toggle Visibility via Display instead of Opacity/Z-index on Mobile */
+        .sign-in-container {
+          display: block;
+          z-index: 5;
         }
         .sign-up-container {
-          opacity: 0;
-          z-index: 1;
-          width: 100%;
+          display: none;
         }
+
+        /* When 'Sign Up' is active */
         .auth-card.right-panel-active .sign-in-container {
-          opacity: 0;
-          pointer-events: none;
+          display: none;
         }
         .auth-card.right-panel-active .sign-up-container {
-          opacity: 1;
-          pointer-events: auto;
-          transform: none;
+          display: block;
           animation: none;
+          opacity: 1;
+          transform: none;
         }
+
         .mobile-switch-text {
           display: block;
         }
@@ -597,7 +637,7 @@
             Resident
           </button>
           <button class="role-btn" onclick="setRole('admin')" data-role="admin">
-            Admin / Staff
+            Admin
           </button>
         </div>
 

@@ -40,7 +40,7 @@ ul {
 .container {
   max-width: 95%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .btn {
@@ -372,7 +372,7 @@ footer {
     display: none;
   }
   nav {
-    padding: 0 20px;
+    padding: 0;
   }
   .nav-links {
     position: absolute;

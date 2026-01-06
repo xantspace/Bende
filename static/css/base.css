@@ -41,7 +41,7 @@ ul {
 .container {
   max-width: 95%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .btn {
@@ -597,7 +597,7 @@ footer {
   }
 
   nav {
-    padding: 0 20px;
+    padding: 0;
   }
   .about {
     padding: 20px 0;

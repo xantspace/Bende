@@ -6,4 +6,7 @@ def base(request):
 
 def about(request):
     return render(request, 'about.html', {})
+
+def login_signup(request):
+    return render(request, 'login_signup.html', {})
     

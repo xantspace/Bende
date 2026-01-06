@@ -603,12 +603,12 @@
             Bende LGA
           </div>
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'base' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'base' %}#services">Services</a></li>
+            <li><a href="{% url 'base' %}#projects">Projects</a></li>
+            <li><a href="{% url 'news' %}">News</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li>
               <a
                 href="#"
@@ -643,7 +643,6 @@
 
         <!-- SIGN UP FORM (Dynamic) -->
         <div class="form-container sign-up-container">
-          <!-- Django: <form method="POST" action="{% url 'register' %}"> -->
           <form id="signupForm">
             <!-- Django: <input type="hidden" name="role" id="signupRole" value="resident"> -->
 

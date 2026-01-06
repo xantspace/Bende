@@ -21,6 +21,10 @@ def permit(request):
     return render(request, 'permit.html', {})
 
 
+def dashboard(request):
+    return render(request, 'dashboard.html', {})
+
+
 def birth_cert_view(request):  # ← Changed function name
     if request.method == "POST":
         first_name = request.POST.get('first_name')

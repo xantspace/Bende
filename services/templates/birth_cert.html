@@ -63,16 +63,16 @@
             Bende LGA
           </div>
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'base' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <li>
               <a href="#" style="color: var(--green); font-weight: 700"
                 >Services</a
               >
             </li>
             <li><a href="{% url "base" %}#projects">Projects</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'news' %}">News</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><button class="btn btn-green">Check Status</button></li>
           </ul>
           <div class="mobile-toggle">
@@ -391,7 +391,7 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#">Pay Taxes</a></li>
-              <li><a href="#">Tenders</a></li>
+              <li><a href="{% url 'base' %}#services">Services</a></li>
               <li><a href="#">Staff Login</a></li>
               <li><a href="#">Privacy Policy</a></li>
             </ul>

@@ -61,11 +61,11 @@
                 >About</a
               >
             </li>
-            <li><a href="{% url "base" %}#services">Services</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><button class="btn btn-green">Login / Signup</button></li>
+            <li><a href="{% url 'base' %}#services">Services</a></li>
+            <li><a href="{% url 'base' %}#projects">Projects</a></li>
+            <li><a href="{% url 'news' %}">News</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}" class="btn btn-green" style="color: white;">Login / Signup</a></li>
           </ul>
           <div class="mobile-toggle">
             <i class="fas fa-bars"></i>
@@ -114,7 +114,7 @@
               markets of Uzuakoli, Bende is a land of opportunity.
             </p>
             <div style="margin-top: 30px">
-              <div style="display: flex; gap: 30px">
+              <div class="stats-row">
                 <div>
                   <h3
                     style="
@@ -457,7 +457,7 @@
               <li><a href="#">Our History</a></li>
               <li><a href="#">Leadership</a></li>
               <li><a href="#">Departments</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
           </div>
           <div class="footer-col">

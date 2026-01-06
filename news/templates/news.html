@@ -470,15 +470,15 @@ footer {
             <li><a href="{% url "base" %}">Home</a></li>
             <li><a href="{% url "about" %}">About</a></li>
             <li><a href="{% url "base" %}#services">Services</a></li>
-            <li><a href="#">Projects</a></li>
+            <li><a href="{% url 'base' %}#projects">Projects</a></li>
             <li>
-              <a href="#" 
+              <a href="{% url 'news' %}" 
               style="
               color: var(--green); 
               font-weight: 700;">News</a>
             </li>
-            <li><a href="#">Contact</a></li>
-            <li><button class="btn btn-green">Login / Signup</button></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}" class="btn btn-green">Login / Signup</a></li>
           </ul>
           <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
         </nav>

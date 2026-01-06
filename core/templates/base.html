@@ -65,13 +65,13 @@
             Bende LGA
           </div>
           <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="{% url 'base' %}#home">Home</a></li>
+            <li><a href="{% url 'base' %}#about">About</a></li>
+            <li><a href="{% url 'base' %}#services">Services</a></li>
+            <li><a href="{% url 'base' %}#projects">Projects</a></li>
             <li><a href="{% url "news" %}">News</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button class="btn btn-green">Login / Signup</button></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}" class="btn btn-green" style="color: white;">Login / Signup</a></li>
           </ul>
           <div class="mobile-toggle">
             <i class="fas fa-bars"></i>
@@ -93,8 +93,8 @@
           development in Abia State.
         </p>
         <div style="display: flex; gap: 30px; justify-content: center;">
-          <img style="width:150px;" src="./static/img/ABIA.png" alt="Abia state logo">
-        <img style="width:150px;" src="./static/img/TRC.png" alt="Techrise logo">
+          <img style="width:150px;" src="{% static 'img/ABIA.png' %}" alt="Abia state logo">
+        <img style="width:150px;" src="{% static 'img/TRC.png' %}" alt="Techrise logo">
         </div>
       </div>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div style="display:flex; gap:20px; align-items: center; justify-content: center;" class="container fade-in">
         <img style="width: 40%;"src="{% static "/img/mayor.jpg" %}" alt="LGA Mayor Image" />
-        <img style="width: 40%;"src="{% static "/img/deputy_mayor.png" %}" alt="LGA Mayor Image" />
+        <img style="width: 40%;"src="{% static 'img/deputy_mayor.png' %}" alt="LGA Mayor Image" />
 
       </div>
       </div>
@@ -441,23 +441,9 @@
             </div>
           </div>
 
-          <div class="map-placeholder fade-in">
-            <!-- Placeholder for Google Maps API -->
-             
-            <span style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;
-            @media screen and (max-width: 600px) {
-              width: 200px;
-              height: 100px;
-            }
-            ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.567630504612!2d7.634476811090879!3d5.555564965464564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1042d0f44202f21d%3A0xe3e9a6b95a820497!2sBende%20Local%20Government%20Area%20Secratariat!5e1!3m2!1sen!2sng!4v1765264256610!5m2!1sen!2sng" width="500" height="300" style="border:0; @media screen and (max-width: 600px) {
-              width: 200px;
-              height: 100px;
-              
-            }" 
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </span>
-          </div>
+            <div class="map-wrapper map-placeholder fade-in">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.567630504612!2d7.634476811090879!3d5.555564965464564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1042d0f44202f21d%3A0xe3e9a6b95a820497!2sBende%20Local%20Government%20Area%20Secratariat!5e1!3m2!1sen!2sng!4v1765264256610!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
       </div>
     </section>
@@ -481,8 +467,8 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#">Pay Taxes</a></li>
-              <li><a href="#">Tenders</a></li>
-              <li><a href="#">Staff Login</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="{% url 'login' %}">Staff Login</a></li>
               <li><a href="#">Privacy Policy</a></li>
             </ul>
           </div>

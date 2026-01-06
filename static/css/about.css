@@ -202,6 +202,10 @@ nav {
   margin-bottom: 20px;
   font-size: 1.05rem;
 }
+.stats-row {
+  display: flex;
+  gap: 30px;
+}
 
 .intro-image {
   position: relative;
@@ -349,6 +353,10 @@ footer {
 @media (max-width: 768px) {
   .intro-grid {
     grid-template-columns: 1fr;
+  }
+  .stats-row {
+    flex-direction: column;
+    gap: 20px;
   }
   .top-bar {
     display: none;

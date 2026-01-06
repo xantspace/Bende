@@ -546,6 +546,14 @@
           align-items: flex-start;
           gap: 15px;
         }
+        .desktop-only {
+          display: none;
+        }
+      }
+      @media (min-width: 601px) {
+          .desktop-only {
+              display: inline;
+          }
       }
     </style>
   </head>
@@ -577,18 +585,10 @@
           <div class="user-nav">
             <div class="user-pill">
               <div class="avatar-circle">JD</div>
-              <span
-                style="
-                  display: none;
-                  @media (min-width: 600px) {
-                    display: inline;
-                  }
-                "
-                >John Doe</span
-              >
+<span class="desktop-only">John Doe</span>
             </div>
             <a
-              href="#"
+              href="{% url 'base' %}"
               style="color: var(--text-light); font-size: 1.2rem"
               title="Logout"
               ><i class="fas fa-sign-out-alt"></i

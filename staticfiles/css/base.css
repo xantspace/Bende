@@ -39,7 +39,7 @@ ul {
 
 /* --- UTILITIES --- */
 .container {
-  max-width: 100%;
+  max-width: 95%;
   margin: 0 auto;
   padding: 0 20px;
 }

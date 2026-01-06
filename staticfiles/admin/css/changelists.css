@@ -124,7 +124,7 @@
     margin: 0;
     vertical-align: top;
     font-size: 0.8125rem;
-    max-width: 100%;
+    max-width: 95%;
 }
 
 #toolbar #searchbar:focus {

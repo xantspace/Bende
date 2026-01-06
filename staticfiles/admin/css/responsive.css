@@ -212,7 +212,7 @@ input[type="submit"], button {
     }
 
     textarea {
-        max-width: 100%;
+        max-width: 95%;
         max-height: 120px;
     }
 
@@ -415,7 +415,7 @@ input[type="submit"], button {
     }
 
     #changelist .changelist-form-container:has(#changelist-filter) > div {
-        max-width: 100%;
+        max-width: 95%;
         width: 100%;
     }
 
@@ -500,7 +500,7 @@ input[type="submit"], button {
     .aligned .form-row select,
     .aligned .form-row textarea {
         flex: 1 1 auto;
-        max-width: 100%;
+        max-width: 95%;
     }
 
     .aligned .checkbox-row input {

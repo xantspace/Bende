@@ -39,7 +39,7 @@ ul {
 
 /* --- UTILITIES --- */
 .container {
-  max-width: 100%;
+  max-width: 95%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -451,7 +451,7 @@ nav {
   align-items: center;
   flex-direction: row;
   text-align: left;
-  max-width: 100%;
+  max-width: 95%;
   margin: 0 60px;
   gap: 40px;
 }
